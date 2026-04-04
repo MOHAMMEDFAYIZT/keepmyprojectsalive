@@ -10,8 +10,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Ping Supabase
+      - name: Ping All Projects
         run: |
-          curl -X GET "https://teziphucpvvqghwhcvyq.supabase.co/rest/v1/flames_calculations" \
-          -H "apikey: ${{ secrets.SUPABASE_KEY }}" \
-          -H "Authorization: Bearer ${{ secrets.SUPABASE_KEY }}"
+          # 🔥 Flames Finder
+          curl -s -X GET "https://teziphucpvvqghwhcvyq.supabase.co/rest/v1/flames_calculations?select=id" \
+          -H "apikey: ${{ secrets.SUPABASE_KEY_1 }}" \
+          -H "Authorization: Bearer ${{ secrets.SUPABASE_KEY_1 }}"
+
+          # 🛒 Ecommerce
+          curl -s -X GET "https://ifxofuzxczwrvhlxzbgz.supabase.co/rest/v1/products?select=id" \
+          -H "apikey: ${{ secrets.SUPABASE_KEY_2 }}" \
+          -H "Authorization: Bearer ${{ secrets.SUPABASE_KEY_2 }}"
+
+          # ⚡ Third Project
+          curl -s -X GET "https://rnkretlgnqqxipnnbgqf.supabase.co/rest/v1/hotels?select=id" \
+          -H "apikey: ${{ secrets.SUPABASE_KEY_3 }}" \
+          -H "Authorization: Bearer ${{ secrets.SUPABASE_KEY_3 }}"
