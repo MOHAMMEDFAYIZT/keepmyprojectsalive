@@ -13,16 +13,16 @@ jobs:
       - name: Ping All Projects
         run: |
           # 🔥 Flames Finder
-          curl -s -X GET "https://teziphucpvvqghwhcvyq.supabase.co/rest/v1/flames_calculations?select=id" \
+          curl -s -X GET "https://teziphucpvvqghwhcvyq.supabase.co/rest/v1/flames_calculations" \
           -H "apikey: ${{ secrets.SUPABASE_KEY_1 }}" \
           -H "Authorization: Bearer ${{ secrets.SUPABASE_KEY_1 }}"
 
           # 🛒 Ecommerce
-          curl -s -X GET "https://ifxofuzxczwrvhlxzbgz.supabase.co/rest/v1/products?select=id" \
+          curl -s -X GET "https://ifxofuzxczwrvhlxzbgz.supabase.co/rest/v1/products" \
           -H "apikey: ${{ secrets.SUPABASE_KEY_2 }}" \
           -H "Authorization: Bearer ${{ secrets.SUPABASE_KEY_2 }}"
 
           # ⚡ Third Project
-          curl -s -X GET "https://rnkretlgnqqxipnnbgqf.supabase.co/rest/v1/hotels?select=id" \
+          curl -s -X GET "https://rnkretlgnqqxipnnbgqf.supabase.co/rest/v1/hotels" \
           -H "apikey: ${{ secrets.SUPABASE_KEY_3 }}" \
           -H "Authorization: Bearer ${{ secrets.SUPABASE_KEY_3 }}"
