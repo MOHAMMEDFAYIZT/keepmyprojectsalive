@@ -9,7 +9,13 @@ jobs:
   ping:
     runs-on: ubuntu-latest
 
+    permissions:
+      contents: write
+
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: Ping All Projects
         run: |
           # 🔥 Flames Finder
@@ -26,3 +32,16 @@ jobs:
           curl -s -X GET "https://rnkretlgnqqxipnnbgqf.supabase.co/rest/v1/hotels" \
           -H "apikey: ${{ secrets.SUPABASE_KEY_3 }}" \
           -H "Authorization: Bearer ${{ secrets.SUPABASE_KEY_3 }}"
+
+      - name: Keep repository active
+        run: |
+          echo "Last active: $(date)" > keepalive.txt
+
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+
+          git add keepalive.txt
+
+          git commit -m "Keep repository active" || echo "No changes"
+
+          git push
